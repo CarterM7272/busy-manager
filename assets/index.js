@@ -16,9 +16,9 @@ $(document).ready(function () {
   //
   $('button').click(function() {
     var value = $(this).siblings('.description').val();
-    var hourId = $(this).parent().attr("id")
-
+    var hourId = $(this).parent().attr("id");
     localStorage.setItem(hourId, value);
+
   })
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
@@ -29,16 +29,16 @@ $(document).ready(function () {
   function timeline() {
     var currentHour = dayjs().hour();
     $('.time-block').each(function() {
-      var hourBlock = parseInt($(this).attr("id").split('-')[1])
+      var hourBlock = parseInt($(this).attr("id").split('-')[1]);
       if (hourBlock < currentHour) {
-        $(this).addClass('past')
+        $(this).addClass('past');
       } else if (hourBlock === currentHour) {
-        $(this).removeClass('past')
-        $(this).addClass('present')
+        $(this).removeClass('past');
+        $(this).addClass('present');
       } else  {
-        $(this).removeClass('past')
-        $(this).removeClass('present')
-        $(this).addClass('future')
+        $(this).removeClass('past');
+        $(this).removeClass('present');
+        $(this).addClass('future');
       }
   })
   }
